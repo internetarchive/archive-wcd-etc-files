@@ -1,0 +1,9 @@
+# https://www.golinuxcloud.com/flask-gunicorn-nginx/#51_Create_WSGi_Entry_Point
+server {
+    listen 80;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/tmp/wikicitations-api/ipc.sock;
+    }
+}
